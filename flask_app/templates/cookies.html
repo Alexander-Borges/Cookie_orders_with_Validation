@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-
     <title>Cookies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
     <div class="container">
-        <div class="flex_container">
+        <div class="flex-container">
             <h1>All Cookie Orders</h1>
             <a href="/cookies/new">Add New Order</a>
         </div>
-
         <div class="flex-container">
-            <table class="striped_table">
+            <table class="striped-table">
                 <thead>
                     <tr>
                         <th scope="col">Customer Name</th>
@@ -25,17 +26,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for order in orders: %}
+                    {% for order in orders %}
                     <tr>
                         <td>{{order.name}}</td>
                         <td>{{order.cookie_type}}</td>
                         <td>{{order.num_boxes}}</td>
-                        <td><a href="/cookies/edit/{order.id}">edit</a></td>
+                        <td><a href="/cookies/edit/{{order.id}}">edit</a></td>
                     </tr>
                     {% endfor %}
+                    
                 </tbody>
             </table>
         </div>
-    </div>    
+    </div>
 </body>
 </html>

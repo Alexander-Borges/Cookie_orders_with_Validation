@@ -1,20 +1,46 @@
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .container {
     margin: 6%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    background-color: lightcyan;
+    border: 2px ridge dodgerblue;
+    height: 50vh;
+    width: 80vw;
 }
 
 .error {
     color: violet
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     background-color: cyan;
-    color: azure;
+    color: dodgerblue;
+}
+
+table {
+    width: 50vw;
+    height:25vh;
+    background-color: rgb(16, 113, 231);
+    padding: .2%;
+}
+table, th, td {
+    border: .5rem ridge rgb(80, 209, 192);
+    text-align: center;
+    border-collapse: collapse;
+    color: aliceblue;
 }

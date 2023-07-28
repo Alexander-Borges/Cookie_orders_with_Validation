@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Cookie Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="container">
         <h1>Change Order</h1>
-        <form action="/cookies/edit/{{order.id}}" method = "post">
+        <a href="/cookies">Back to Orders</a>
+
+        <form action="/cookies/update" method = "post">
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
@@ -18,19 +23,27 @@
         {% endwith %}
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Name" value="{{order.name}}">
+                <input type="text"
+                name="name" class="form-control" value="{{cookie_order.name}}">
             </div>
             <div class="form-group">
                 <label for="cookie_type">Cookie Type</label>
-                <input type="text" name="cookie_type" class="form-control" id="cookie_type" placeholder="ex. chocolate chip" value="{{order.cookie_type}}">
+                <input type="text"
+                name="cookie_type"
+                class="form-control" value="{{cookie_order.cookie_type}}">
             </div>
             <div class="form-group">
-                <label for="num_boxes">Number of Boxes</label>
-                <input type="number" name="num_boxes" class="form-control" id="num_boxes" placeholder="Number of Boxes" value="{{order.num_boxes}}">
+                <label for="num_boxes">Number of boxes</label>
+                <input type="number" 
+                name="num_boxes"
+                class="form-control" value="{{cookie_order.num_boxes}}">
             </div>
-            <input type="hidden" name="id" value="{{order.id}}">
-                <input type="submit" class="form-control" value="submit">
+            <input type="hidden" name="id" value="{{cookie_order.id}}">
+
+            <input type="submit" class="btn" value="submit">
+            
         </form>
+        
     </div>
 </body>
 </html>
